@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Isometric Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game"></div>
+    <script src="melonjs.module.js"></script>
+    <script>
+        // Initialize MelonJS
+        me.init();
+
+        // Set the resources to preload
+        me.loader.preload([
+            // Add your game assets here, like images and audio
+        ]);
+
+        // Define your game objects and states here
+
+        // Add the game states to the state manager
+        me.state.add("menu", MyMenuState);
+        me.state.add("level", MyLevelState);
+        me.state.add("gameover", MyGameOverState);
+
+        // Start the game with the menu state
+        me.state.change("menu");
+
+        // Bind the WASD keys to player movement
+        me.input.bindKey(me.input.KEY.W, "up");
+        me.input.bindKey(me.input.KEY.A, "left");
+        me.input.bindKey(me.input.KEY.S, "down");
+        me.input.bindKey(me.input.KEY.D, "right");
+    </script>
+</body>
+</html>
